@@ -1,3 +1,13 @@
-<p>
-  all-galleries works!
-</p>
+<div class="container">
+  
+  <h2>All galleries:</h2>
+  
+    <hr>
+    <ul *ngFor="let gallery of galleries">
+      <li class="list-group-item">Name: {{ gallery.name }}</li>
+      <li class="list-group-item">Description: {{ gallery.description }}</li>
+      <!-- <li class="list-group-item">Created by: {{ login.name }}</li> -->
+      <li class="list-group-item">Created at: {{ gallery.created_at | date: "yyyy-mm-dd" }}</li>
+    </ul>
+  <hr>
+</div>

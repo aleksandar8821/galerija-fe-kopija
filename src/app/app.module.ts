@@ -14,6 +14,7 @@ import { MyGalleriesComponent } from './components/my-galleries/my-galleries.com
 import { CreateNewGalleryComponent } from './components/create-new-gallery/create-new-gallery.component';
 import { LayoutComponent } from './components/layout/layout.component';
 import { AuthService } from './shared/services/auth.service';
+import { GalleryService } from './shared/services/gallery.service';
 import { AuthGuard } from './shared/guards/auth.guard';
 import { GuestGuard } from './shared/guards/guest.guard';
 
@@ -35,7 +36,12 @@ import { GuestGuard } from './shared/guards/guest.guard';
     HttpModule,
     HttpClientModule    
   ],
-  providers: [AuthService, AuthGuard, GuestGuard],
+  providers: [
+    AuthService, 
+    GalleryService, 
+    AuthGuard, 
+    GuestGuard
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
