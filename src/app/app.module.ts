@@ -17,6 +17,7 @@ import { AuthService } from './shared/services/auth.service';
 import { GalleryService } from './shared/services/gallery.service';
 import { AuthGuard } from './shared/guards/auth.guard';
 import { GuestGuard } from './shared/guards/guest.guard';
+import { GalleryDetailsComponent } from './components/gallery-details/gallery-details.component';
 
 
 @NgModule({
@@ -27,7 +28,8 @@ import { GuestGuard } from './shared/guards/guest.guard';
     RegisterComponent,
     MyGalleriesComponent,
     CreateNewGalleryComponent,
-    LayoutComponent
+    LayoutComponent,
+    GalleryDetailsComponent
   ],
   imports: [
     BrowserModule,

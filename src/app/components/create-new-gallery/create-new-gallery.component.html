@@ -1,3 +1,55 @@
-<p>
-  create-new-gallery works!
-</p>
+<h2>Create new gallery</h2>
+
+<form #createForm="ngForm" (ngSubmit)="create()">
+    
+    <div class="form-group">
+        <label for="name">
+           Name
+       </label>
+        <input #name="ngModel" [(ngModel)]="gallery.name" type="text" required minlength="2" maxlength="255" class="form-control" id="name" name="name">
+
+        <div *ngIf="name.invalid && (name.dirty || name.touched)" class="alert alert-danger">
+            <div *ngIf="name.errors.required">
+                 Name is required.
+            </div>
+            <div *ngIf=" name.errors.minlength ">
+                  Name must be at least 2 chars
+            </div>
+            <div *ngIf=" name.errors.maxlength ">
+                  Name can be max 255 chars
+            </div>            
+        </div>
+    </div>
+
+    <div class="form-group">
+        <label for="lastName">
+           Description
+       </label>
+        <input #description="ngModel" [(ngModel)]="gallery.description" type="text" maxlength="1000" class="form-control" id="description" name="description">
+
+        <div *ngIf="description.invalid && (description.dirty || description.touched)" class="alert alert-danger">
+            <div *ngIf=" description.errors.maxlength ">
+                Descritpion can be max 1000 chars
+            </div>          
+        </div>
+    </div>
+
+    <div class="form-group">
+        <label for="imageUrl">
+           Add image
+       </label>
+        <input #imageUrl="ngModel" [(ngModel)]="gallery.imageUrl" type="text" maxlength="1000" class="form-control" id="imageUrl" name="imageUrl">
+
+        <div *ngIf="imageUrl.invalid && (imageUrl.dirty || imageUrl.touched)" class="alert alert-danger">
+            <div *ngIf=" imageUrl.errors.maxlength ">
+                Descritpion can be max 1000 chars
+            </div>          
+        </div>
+        <br>
+        <button type="submit" class="btn btn-primary" (click)="addNewImage()">Add new image</button>
+
+    </div>
+
+    <button type="submit" class="btn btn-primary btn-block">Create new gallery</button>
+</form>
+

@@ -22,7 +22,7 @@ export class AllGalleriesComponent implements OnInit {
   ngOnInit() {
   	this.galleryService.getGalleries().subscribe(
       data => {
-      	console.log(data);
+      	 console.log(data);
         this.galleries = data;
       },
       (err: HttpErrorResponse) => {

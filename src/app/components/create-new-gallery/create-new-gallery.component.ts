@@ -1,4 +1,7 @@
 import { Component, OnInit } from '@angular/core';
+import { Renderer2 } from '@angular/core';
+import { ElementRef } from '@angular/core';
+
 
 @Component({
   selector: 'app-create-new-gallery',
@@ -7,7 +10,7 @@ import { Component, OnInit } from '@angular/core';
 })
 export class CreateNewGalleryComponent implements OnInit {
 
-  constructor() { }
+  constructor(private renderer: Renderer2, private elementRef: ElementRef) { }
 
   ngOnInit() {
   }
