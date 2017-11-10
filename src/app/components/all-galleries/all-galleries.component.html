@@ -1,10 +1,17 @@
+
+
 <div class="container">
   
   <h2>All galleries:</h2>
+
+  <form #filterForm="ngForm" (ngSubmit)="filterGallery(filterTerm)" class="form-inline my-2 my-lg-0">
+<input class="form-control mr-sm-2" type="search" name="filterTerm" placeholder="Filter galleries" aria-label="Search" [(ngModel)]="filterTerm">
+	<button class="btn btn-outline-success my-2 my-sm-0" type="submit">Filter</button>
+</form>
   
     <hr>
     <ul *ngFor="let gallery of galleries">
-      <li class="list-group-item"><a routerLink = "/galleries/{{gallery.id}}">Name: {{ gallery.name }}</a></li>
+      <li class="list-group-item">Name: <a routerLink = "/galleries/{{gallery.id}}">{{ gallery.name }}</a></li>
       <li class="list-group-item">Description: {{ gallery.description }}</li>
       <!-- <li class="list-group-item">Created by: {{ login.name }}</li> -->
       <li class="list-group-item">Created at: {{ gallery.created_at | date: "yyyy-mm-dd" }}</li>
