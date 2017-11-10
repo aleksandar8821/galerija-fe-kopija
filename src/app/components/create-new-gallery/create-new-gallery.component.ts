@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { Gallery } from '../../shared/models/gallery';
+import { GalleryService } from '../../shared/services/gallery.service';
 import { Renderer2 } from '@angular/core';
 import { ElementRef } from '@angular/core';
 
@@ -10,9 +12,15 @@ import { ElementRef } from '@angular/core';
 })
 export class CreateNewGalleryComponent implements OnInit {
 
-  constructor(private renderer: Renderer2, private elementRef: ElementRef) { }
+	private gallery: Gallery = new Gallery();
+
+  constructor(private renderer: Renderer2, private elementRef: ElementRef, private galleryService: GalleryService) { }
 
   ngOnInit() {
+  }
+
+  public createGallery(gallery: Gallery){
+  	this.galleryService.createGallery(gallery);
   }
 
 }
