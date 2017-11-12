@@ -17,6 +17,11 @@ export class AuthService {
     this.isAuthenticated = Boolean(window.localStorage.getItem('loginToken'));
   }
 
+  public getRequestHeaders() {
+    return new HttpHeaders().set('Authorization', 'Bearer ' + window.localStorage.getItem('loginToken'));
+  }
+
+
   public login(email: string, password: string) {
   	return new Observable((o: Observer<any>) => {
   		this.http.post('http://localhost:8000/api/login', {
@@ -53,6 +58,7 @@ export class AuthService {
       }).subscribe((data: { token: string }) => {
         window.localStorage.setItem('loginToken', data.token);
         this.isAuthenticated = true;
+        o.next(data.token);
         this.router.navigateByUrl('/');
       }, (err) => {
         return o.error(err);

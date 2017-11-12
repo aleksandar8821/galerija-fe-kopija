@@ -13,7 +13,7 @@
     <ul *ngFor="let gallery of galleries">
       <li class="list-group-item">Name: <a routerLink = "/galleries/{{gallery.id}}">{{ gallery.name }}</a></li>
       <li class="list-group-item">Description: {{ gallery.description }}</li>
-      <li class="list-group-item">Created by: {{ gallery.user.first_name }}  {{ gallery.user.last_name}}</li>
+      <li class="list-group-item">Created by: {{ gallery.user.firstName }}  {{ gallery.user.lastName}}</li>
       <li class="list-group-item">Created at: {{ gallery.created_at | date: "yyyy-mm-dd" }}</li>
     </ul>
   <hr>

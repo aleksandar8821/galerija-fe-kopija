@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
 import { Gallery } from '../../shared/models/gallery';
 import { GalleryService } from '../../shared/services/gallery.service';
 import { Renderer2 } from '@angular/core';
@@ -12,15 +13,29 @@ import { ElementRef } from '@angular/core';
 })
 export class CreateNewGalleryComponent implements OnInit {
 
-	private gallery: Gallery = new Gallery();
+	public gallery: Gallery = new Gallery();
+  public addNewImages: Array<number> = Array();
 
-  constructor(private renderer: Renderer2, private elementRef: ElementRef, private galleryService: GalleryService) { }
+  constructor(private renderer: Renderer2, private elementRef: ElementRef, private galleryService: GalleryService, private router: Router) { }
 
   ngOnInit() {
   }
 
   public createGallery(gallery: Gallery){
-  	this.galleryService.createGallery(gallery);
+    // console.log(gallery);
+  	this.galleryService.createGallery(gallery).subscribe((data: any) => {
+      alert("You have successfully created a new gallery!");
+      console.log(data);
+      this.router.navigateByUrl('/my-galleries'); 
+    });
+    
   }
 
+  public addNewImage(){
+    this.addNewImages.push(this.addNewImages.length + 1);
+  }
+
+  addRow() {
+      
+    }
 }

@@ -2,6 +2,7 @@ import { Injectable } from '@angular/core';
 import { Observer, Observable } from 'rxjs';
 import { Gallery } from '../../shared/models/gallery';
 import { User } from '../../shared/models/user';
+import { AuthService } from '../../shared/services/auth.service';
 import { HttpClient } from '@angular/common/http';
 import { HttpErrorResponse } from '@angular/common/http';
 
@@ -11,7 +12,7 @@ export class GalleryService {
   private galleries: Gallery[] = [];
   private user: User;
 
-  constructor(private http: HttpClient) {}
+  constructor(private http: HttpClient, private authService: AuthService) {}
 
   public getGalleries()
   {
@@ -40,23 +41,41 @@ export class GalleryService {
   }
  
   public createGallery(gallery: Gallery) {
-    console.log('eeeeeeeeej');
+     console.log(gallery);
     return new Observable((o: Observer<any>) => {
-      this.http.post('http://localhost:8000/api/galleries', {
-        name: gallery.name,
-        description: gallery.description,
-        images: gallery.images,
-        user_id: gallery.user.id
-
-      }).subscribe(() => {
-        alert("You have successfully created a new gallery!");
+      this.http.post('http://127.0.0.1:8000/api/galleries', {
+        'name': gallery.name,
+        'description': gallery.description,
+        // 'user_id': gallery.user.id,
+        'images': gallery.images
+      }, {
+        headers: this.authService.getRequestHeaders()
+      }).subscribe( (data: any) => {
+        // alert("You have successfully created a new gallery!");
+        // console.log(data);
+        
+        o.next(data);
         return o.complete();
       }, (err: HttpErrorResponse) => {
-        alert(`Backend returned code ${err.status} with message: ${err.error}`);
+        console.log(`Backend returned code ${err.status} with message: ${err.error}`);
       }
       );
     });
+
   }
 
+  // public createGallery(gallery: Gallery) {
+  //   console.log(gallery);
+  //   return new Observable((o: Observer<any>) => {
+  //     this.http.post('http://localhost:8000/api/galleries', {
+  //       'name': gallery.name,
+  //       'description': gallery.description
+  //     }).subscribe((data) => {
+  //       console.log(data);       
+  //     }, (err) => {
+  //       return o.error(err);
+  //     });
+  //   });
+  // }
 
 }
