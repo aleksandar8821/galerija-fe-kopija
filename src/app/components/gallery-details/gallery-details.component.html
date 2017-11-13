@@ -1,3 +1,14 @@
-<p>
-  gallery-details works!
-</p>
+<h2> {{ gallery.name }}</h2>
+<br>
+<ul>
+	<li class="list-group-item"><strong>Description:</strong> {{ gallery.description }}</li>
+	<li class="list-group-item"><strong>Created by:</strong> {{ gallery.user.firstName }}  {{ gallery.user.lastName}}</li>
+	<li class="list-group-item"><strong>Created at:</strong> {{ gallery.created_at | date: "yyyy-mm-dd" }}</li>
+</ul>
+
+<strong>Images:</strong>
+<hr>
+<ul >
+	<li *ngFor="let image of gallery.images" class="list-group-item"><a href="{{image.url}}">{{ image.url }}</a></li>
+	
+</ul>

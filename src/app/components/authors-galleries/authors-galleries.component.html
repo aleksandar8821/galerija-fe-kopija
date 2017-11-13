@@ -1,7 +1,6 @@
-
-<div class="container" *ngIf="myGalleries.length">
+<div class="container">
   
-  <h2>All my galleries:</h2>
+  <h2>All authors galleries:</h2>
 
   <form #filterForm="ngForm" (ngSubmit)="filterGallery(filterTerm)" class="form-inline my-2 my-lg-0">
 <input class="form-control mr-sm-2" type="search" name="filterTerm" placeholder="Filter galleries" aria-label="Search" [(ngModel)]="filterTerm">
@@ -9,14 +8,10 @@
 </form>
   
     <hr>
-    <ul *ngFor="let gallery of myGalleries">
+    <ul *ngFor="let gallery of authorsGalleries">
       <li class="list-group-item">Name: <a routerLink = "/galleries/{{gallery.id}}">{{ gallery.name }}</a></li>
       <li class="list-group-item">Description: {{ gallery.description }}</li>
       <li class="list-group-item">Created at: {{ gallery.created_at | date: "yyyy-mm-dd" }}</li>
     </ul>
   <hr>
-</div>
-
-<div class="container" *ngIf="!myGalleries.length">
-  You haven't created any galleries yet!
 </div>

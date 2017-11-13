@@ -11,10 +11,11 @@
   
     <hr>
     <ul *ngFor="let gallery of galleries">
-      <li class="list-group-item">Name: <a routerLink = "/galleries/{{gallery.id}}">{{ gallery.name }}</a></li>
-      <li class="list-group-item">Description: {{ gallery.description }}</li>
-      <li class="list-group-item">Created by: {{ gallery.user.firstName }}  {{ gallery.user.lastName}}</li>
-      <li class="list-group-item">Created at: {{ gallery.created_at | date: "yyyy-mm-dd" }}</li>
+      <li class="list-group-item"><strong>Name:</strong> <a routerLink = "/galleries/{{gallery.id}}">{{ gallery.name }}</a></li>
+      <li class="list-group-item"><strong>Description:</strong> {{ gallery.description }}</li>
+      <li class="list-group-item"><strong>Created by:</strong> <a routerLink = "/authors/{{gallery.user_id}}">{{ gallery.user.firstName }}  {{ gallery.user.lastName}}</a> </li>
+      <li class="list-group-item"><strong>Created at:</strong> {{ gallery.created_at | date: "yyyy-mm-dd" }}</li>
+      <li class="list-group-item"><strong>Images:</strong> <a href="{{ gallery.images[0].url }}">{{ gallery.images[0].url }}</a>, ...</li>
     </ul>
   <hr>
 </div>

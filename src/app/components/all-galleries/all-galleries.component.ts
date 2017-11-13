@@ -37,8 +37,9 @@ export class AllGalleriesComponent implements OnInit {
     this.galleryService.getGalleriesForFilter().subscribe(
       (data: Gallery[] ) => {
          console.log(data);
+
          this.galleries = data.filter((gallery: Gallery) => {
-           return (gallery.name.toLocaleLowerCase().includes(filterTerm.toLocaleLowerCase()) || gallery.description.toLocaleLowerCase().includes(filterTerm.toLocaleLowerCase()) || gallery.user.firstName.toLocaleLowerCase().includes(filterTerm.toLocaleLowerCase()) || gallery.user.lastName.toLocaleLowerCase().includes(filterTerm.toLocaleLowerCase()));
+           return (gallery.name.toLocaleLowerCase().includes(filterTerm.toLocaleLowerCase()) || gallery.description.toLocaleLowerCase().includes(filterTerm.toLocaleLowerCase()) || (gallery.user.firstName + " " + gallery.user.lastName).toLocaleLowerCase().includes(filterTerm.toLocaleLowerCase()));
          });
          if(this.galleries.length === 0){
            alert('There are no galleries with term: ' + filterTerm);

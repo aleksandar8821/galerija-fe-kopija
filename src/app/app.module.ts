@@ -18,6 +18,7 @@ import { GalleryService } from './shared/services/gallery.service';
 import { AuthGuard } from './shared/guards/auth.guard';
 import { GuestGuard } from './shared/guards/guest.guard';
 import { GalleryDetailsComponent } from './components/gallery-details/gallery-details.component';
+import { AuthorsGalleriesComponent } from './components/authors-galleries/authors-galleries.component';
 
 
 @NgModule({
@@ -29,7 +30,8 @@ import { GalleryDetailsComponent } from './components/gallery-details/gallery-de
     MyGalleriesComponent,
     CreateNewGalleryComponent,
     LayoutComponent,
-    GalleryDetailsComponent
+    GalleryDetailsComponent,
+    AuthorsGalleriesComponent
   ],
   imports: [
     BrowserModule,

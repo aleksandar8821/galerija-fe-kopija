@@ -5,6 +5,7 @@ import { AllGalleriesComponent } from '../components/all-galleries/all-galleries
 import { CreateNewGalleryComponent } from '../components/create-new-gallery/create-new-gallery.component';
 import { LoginComponent } from '../components/login/login.component';
 import { MyGalleriesComponent } from '../components/my-galleries/my-galleries.component';
+import { AuthorsGalleriesComponent } from '../components/authors-galleries/authors-galleries.component';
 import { RegisterComponent } from '../components/register/register.component';
 import { GalleryDetailsComponent } from '../components/gallery-details/gallery-details.component';
 import { AuthGuard } from '../shared/guards/auth.guard';
@@ -29,6 +30,11 @@ const appRoutes: Routes = [
         path: 'my-galleries',
         canActivate: [AuthGuard],
         component: MyGalleriesComponent
+    },
+    {
+        path: 'authors/:id',
+        canActivate: [AuthGuard],
+        component: AuthorsGalleriesComponent
     },
     {
         path: 'create',

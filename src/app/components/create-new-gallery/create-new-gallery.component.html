@@ -50,17 +50,14 @@
        
     </div>
 
-    <div *ngFor="let addNewImage of addNewImages" class="form-group">
+    <div *ngFor="let addNewImage of addNewImages;let index = index" class="form-group">
       <label for="imageUrl">
        Add image ( type in a URL :) )
      </label>
      <input #{{addNewImage}}="ngModel" [(ngModel)]="gallery.images[addNewImage]" type="text" maxlength="1000" class="form-control" id="{{addNewImage}}" name="{{addNewImage}}">
 
-     <div *ngIf="imageUrl.invalid && (imageUrl.dirty || imageUrl.touched)" class="alert alert-danger">
-      <div *ngIf=" imageUrl.errors.maxlength ">
-        Descritpion can be max 1000 chars
-      </div>          
-    </div>
+    <!-- <button type="button"  class="btn btn-primary .d-inline" (click)="removeImage(index)">X</button> -->
+  
 
     </div>
 
@@ -68,22 +65,7 @@
       <button type="button" class="btn btn-primary" (click)="addNewImage()">Add new image</button>
     </div>
 
- <!--    <div class="form-group">
-        <label for="imageUrl">
-           Add image
-       </label>
-        <input #imageUrl="ngModel" [(ngModel)]="gallery.images[1]" type="text" maxlength="1000" class="form-control" id="imageUrl" name="imageUrl">
 
-        <div *ngIf="imageUrl.invalid && (imageUrl.dirty || imageUrl.touched)" class="alert alert-danger">
-            <div *ngIf=" imageUrl.errors.maxlength ">
-                Descritpion can be max 1000 chars
-            </div>          
-        </div>
-        <br>
-        <button type="submit" class="btn btn-primary" (click)="addNewImage()">Add new image</button>
-
-    </div>
- -->
     <button type="submit" class="btn btn-primary btn-block">Create new gallery</button>
 </form>
 

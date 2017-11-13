@@ -35,7 +35,12 @@ export class CreateNewGalleryComponent implements OnInit {
     this.addNewImages.push(this.addNewImages.length + 1);
   }
 
-  addRow() {
-      
-    }
+  // public removeImage(index){
+
+  //   this.addNewImages.splice(index,1);
+  //   this.gallery.images[index+1]=null;
+  //   this.gallery.images.splice(index+1,1);
+  //   console.log(this.gallery.images);
+  //   console.log(this.addNewImages);
+  // }
 }
