@@ -25,7 +25,7 @@ export class GalleryService {
           (galleries: any[]) => {
             // console.log(galleries);
             galleries.forEach((g) => {
-              this.galleries.push(new Gallery(g.id, g.name, g.description, g.user_id, g.created_at, g.updated_at, g.user, g.images));
+              this.galleries.push(new Gallery(g.id, g.name, g.description, g.user_id, g.created_at, g.updated_at, new User(g.user.id, g.user.first_name, g.user.last_name, g.user.email), g.images));
 //               this.user = new User(c.user.id, c.user.first_name
 // , c.user.last_name, c.user.email);
               
