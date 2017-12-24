@@ -3,6 +3,7 @@ import { Image } from '../../shared/models/image';
 
 export class Gallery{
 // public user: User;
+// DE SI PERO!!!
 	constructor(
 
 		public id?: number,
