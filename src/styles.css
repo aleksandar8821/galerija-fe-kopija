@@ -1,13 +1,40 @@
 /* You can add global styles to this file, and also import other style files */
 
 body{
-	background-image: url(assets/images/hqdefault.jpg);
+	background-image: url(assets/images/hqdefault2.jpg);
 }
+
+.myclass-whole-page-wrapper{
+	/*padding: 0;*/
+}
+
+.myclass-router-outlet-wrapper{
+	background-color: white;
+	min-height: 100vh;
+	/*padding: 0;*/
+}
+
+.myclass-below-header{
+	background-color: white;
+	padding: 20px;
+}
+
+.myclass-galleries-container-wrapper{
+	border: 50px solid white;
+	border-top-width: 20px;
+	border-bottom-width: 20px;
+}
+
+/*- da bi postigao efekat providnosti diva koji istovremeno ima spoljne ivice koje su pravougaone i unutrasnje koje su zaobljene, morao sam da unutrasnji div (.myclass-galleries-container) ucinim providnim (i dam mu padding naravno) i dam mu zaobljene ivice, a zatim da ga prosirim preko negativne margine toliko da se preklopi sa spoljnim (.myclass-galleries-container-wrapper) divom*/
 
 .myclass-galleries-container{
 	background-color: rgba(230, 219, 25, 0.5);
 	padding: 20px;
-	border-radius: 10px;
+	border: 20px solid white;
+	/* border radius na unutrasnjim ivicama (kad je border deblji) se dobija tek kada border radius predje odredjenu velicinu, dakle on kako ga povecavas prvo zaobljava spoljne ivice, i tek kad dodje do odredjene vrednosti pocinje da zaobljava i unutrasnje. Nesto vise o tome https://stackoverflow.com/questions/4839613/how-to-make-round-corners-to-both-inside-of-a-box-and-its-border
+	*/
+	border-radius: 30px;
+	margin: -15px;
 }
 
 .myclass-galleries-container > * + * {

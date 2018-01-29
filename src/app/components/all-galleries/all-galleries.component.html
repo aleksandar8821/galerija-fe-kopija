@@ -1,6 +1,8 @@
-<p>
-  all-galleries works!
-</p>
+<div class="myclass-below-header">
+	all-galleries works!
+</div>
+
+
 
 <!-- <ul *ngFor="let gallery of galleries">
       <li class="list-group-item"><strong>Name:</strong> <a routerLink = "/galleries/{{gallery.id}}">{{ gallery.name }}</a></li>
@@ -10,20 +12,24 @@
       <li class="list-group-item"><strong>Images:</strong> <a href="{{ gallery.images[0].url }}">{{ gallery.images[0].url }}</a>, ...</li>
 </ul> -->
 
-<div class="myclass-galleries-container">
-	<div *ngFor="let gallery of galleries" class="card text-center">
-	  <div class="card-header">
-	  	<h5 class="card-title"><a routerLink = "/galleries/{{gallery.id}}">{{ gallery.name }}</a></h5>
-	    {{ gallery.description }}
-	  </div>
-	  <div class="card-body">
-	    <strong>Images:</strong> <a href="{{ gallery.images[0].url }}">{{ gallery.images[0].url }}</a>, ...
-	    <p class="card-text">With supporting text below as a natural lead-in to additional content.</p>
-	    <a href="#" class="btn btn-primary">Go somewhere</a>
-	  </div>
-	  <div class="card-footer text-muted">
-	    <strong>Created by:</strong> <a routerLink = "/authors/{{gallery.user_id}}">{{ gallery.user.firstName }}  {{ gallery.user.lastName}}</a>
-	    <strong>Created at:</strong> {{ gallery.created_at | date: "yyyy-mm-dd" }}
-	  </div>
+
+<div class="myclass-galleries-container-wrapper">
+	<div class="myclass-galleries-container">
+		<div *ngFor="let gallery of galleries" class="card text-center">
+		  <div class="card-header">
+		  	<h5 class="card-title"><a routerLink = "/galleries/{{gallery.id}}">{{ gallery.name }}</a></h5>
+		    {{ gallery.description }}
+		  </div>
+		  <div class="card-body">
+		    <strong>Images:</strong> <a href="{{ gallery.images[0].url }}">{{ gallery.images[0].url }}</a>, ...
+		    <p class="card-text">With supporting text below as a natural lead-in to additional content.</p>
+		    <a href="#" class="btn btn-primary">Go somewhere</a>
+		  </div>
+		  <div class="card-footer text-muted">
+		    <strong>Created by:</strong> <a routerLink = "/authors/{{gallery.user_id}}">{{ gallery.user.firstName }}  {{ gallery.user.lastName}}</a>
+		    <strong>Created at:</strong> {{ gallery.created_at | date: "yyyy-mm-dd" }}
+		  </div>
+		</div>
 	</div>
 </div>
+

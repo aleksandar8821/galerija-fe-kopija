@@ -16,6 +16,7 @@ export class AllGalleriesComponent implements OnInit {
   constructor(private galleryService: GalleryService) { }
 
   ngOnInit() {
+
   	this.galleryService.getGalleries().subscribe(
   	      data => {
   	        this.galleries = data;
